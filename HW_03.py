@@ -19,7 +19,7 @@ def task_1():
 
     def odd_position_sum(array):
         answer = 0
-        for i in range (0, len(array)):
+        for i in range(0, len(array)):
             if i % 2 == 0:
                 answer += array[i]
         return answer
@@ -101,7 +101,7 @@ def task_5():
     k = 8
     k = k - 1
 
-    def fibonachi(size, answer = [0, 1]):
+    def fibonachi(size, answer=[0, 1]):
             answer.append(answer[(len(answer) - 1)] + answer[(len(answer) - 2)])
             size -= 1
             if size > 0:
@@ -116,6 +116,7 @@ def task_5():
     array = fibonachi(k)
     array = negafibonachi(array)
     print(array)
+
 
 task_1()
 task_2()
