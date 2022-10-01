@@ -39,7 +39,7 @@ def task_2():
 
     def multiply_pair_index(array):
         new_array = []
-        for i in range(math.floor(len(array) / 2)):
+        for i in range(len(array) // 2):
             new_array.append(array[i] * array[len(array) - 1 - i])
         return new_array
     print(multiply_pair_index(test_list))
@@ -78,7 +78,7 @@ def task_4():
 
     def from_ten_to_two(number, answer=""):
         current_number = str(number % 2)
-        number = math.floor(number / 2)
+        number = number // 2
         if number > 0:
             answer += from_ten_to_two(number, answer)
         answer += str(current_number)
