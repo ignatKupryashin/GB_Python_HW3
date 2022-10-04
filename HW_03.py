@@ -1,9 +1,8 @@
 # Метод для красивого вывода заголовков
-import math
-
-
 def title(title_string):
     print("\n" + title_string + "\n")
+
+    import time
 
 # Задание 1: Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 
@@ -96,30 +95,48 @@ def task_4():
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 
 
-def task_5():
+def task_5(k):
     title("Задание 5: Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.")
-    k = 8
-    k = k - 1
 
-    def fibonachi(size, answer=[0, 1]):
-            answer.append(answer[(len(answer) - 1)] + answer[(len(answer) - 2)])
-            size -= 1
-            if size > 0:
-                return fibonachi(size, answer)
-            return answer
+    k = k-1
+    fibbonachi = [0, 1]
+    for i in range(2, k):
+        fibbonachi.append(fibbonachi[i - 1] + fibbonachi[i - 2])
 
-    def negafibonachi(array):
-        answer = []
-        for i in range(len(array) - 1):
-            answer.append((array[(len(array) - 1 - i)]) * ((-1) ** (i + 1)))
-        return answer + array
-    array = fibonachi(k)
-    array = negafibonachi(array)
-    print(array)
+    negafibbonachi = []
+    length = len(fibbonachi) - 1
+    for i in range(length):
+        if i % 2 == 0:
+            k = -1
+        else:
+            k = 1
+        negafibbonachi.append(fibbonachi[length - i] * k)
+    negafibbonachi = negafibbonachi + fibbonachi
+    print(negafibbonachi)
 
 
-task_1()
-task_2()
-task_3()
-task_4()
-task_5()
+
+    # def fibonachi(size, answer=[0, 1]):
+    #
+    #
+    #         answer.append(answer[(len(answer) - 1)] + answer[(len(answer) - 2)])
+    #         size -= 1
+    #         if size > 0:
+    #             return fibonachi(size, answer)
+    #         return answer
+    #
+    # def negafibonachi(array):
+    #     answer = []
+    #     for i in range(len(array) - 1):
+    #         answer.append((array[(len(array) - 1 - i)]) * ((-1) ** (i + 1)))
+    #     return answer + array
+    # array = fibonachi(k)
+    # array = negafibonachi(array)
+    # print(array)
+
+
+# task_1()
+# task_2()
+# task_3()
+# task_4()
+task_5(8)
